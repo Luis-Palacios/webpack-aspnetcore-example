@@ -7,16 +7,16 @@
     <div class="col-md-12">
         <h2>Featured News</h2>
     </div>
-    <ul class="list-inline">
-        @foreach (var item in Model)
-        {
-            <li class="col-sm-6 col-md-4">
-                <partial name="~/Views/Shared/_NewsComponent.cshtml" model="item"/>
-            </li>
-        }
-    </ul>
+</div>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm">
+            <partial name="~/Views/Shared/_NewsComponent.cshtml" model="item" />
+        </div>
+    }
 </div>
 
 @section scripts{
-    <script src=".temp/homebundle.js"></script>
+    
 }
