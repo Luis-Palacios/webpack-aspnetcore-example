@@ -1,23 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using TechNews.Data;
 using TechNews.Models;
 
 namespace TechNews.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private NewsRepository newsRepository;
+        public HomeController()
         {
-            return View();
+            newsRepository = new NewsRepository();
         }
 
-        public IActionResult Search()
+        public IActionResult Index()
         {
-            return View();
+            var news = newsRepository.GetFeaturedNews();
+            return View(news);
+        }
+
+        public IActionResult Search(string searchTerm)
+        {
+            var news = newsRepository.SearchNews(searchTerm);
+            ViewBag.SearchTerm = searchTerm;
+            return View(news);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

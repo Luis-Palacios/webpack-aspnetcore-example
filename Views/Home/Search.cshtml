@@ -1,7 +1,32 @@
-﻿
+﻿@model IEnumerable<NewsViewModel>
+
 @{
     ViewData["Title"] = "Search";
 }
 
-<h2>Search News</h2>
+<h2>Search Results for: <strong contenteditable="true" id="searchTerm">@ViewBag.SearchTerm</strong></h2>
+<br />
+<form class="form-horizontal">
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="year">Published Year</label>
+        <div class="col-sm-4">
+            <select id="year" class="form-control">
+                <option value="">Select Year</option>
+                <option value="2018">2018</option>
+                <option value="2017">2017</option>
+                <option value="2016">2016</option>
+            </select>
+        </div>
+    </div>
+</form>
+<hr />
+@foreach (var item in Model)
+{
+    <ul class="list-inline">
+        <li>
+            <partial name="~/Views/Shared/_NewsComponent.cshtml" model="item" />
+        </li>
+    </ul>
+}
+
 

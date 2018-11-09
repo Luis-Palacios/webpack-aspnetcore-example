@@ -1,13 +1,18 @@
-﻿@{
+﻿@model IEnumerable<NewsViewModel>
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-12">
         <h2>Featured News</h2>
-        <ul>
-            <li>News 1</li>
-            <li>News 2</li>
-        </ul>
     </div>
+    <ul class="list-inline">
+        @foreach (var item in Model)
+        {
+            <li class="col-sm-6 col-md-4">
+                <partial name="~/Views/Shared/_NewsComponent.cshtml" model="item"/>
+            </li>
+        }
+    </ul>
 </div>
