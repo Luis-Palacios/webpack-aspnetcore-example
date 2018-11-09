@@ -25,10 +25,13 @@ namespace TechNews.Data
             return news.Skip(2).Take(3);
         }
 
-        public IEnumerable<NewsViewModel> SearchNews(string searchTerm)
+        public IEnumerable<NewsViewModel> SearchNews(string searchTerm, int publishedYear = 0)
         {
-            var news = GetNews();
-            return news.Where(n => n.Description.Contains(searchTerm)).ToList();
+            var newsQuery = GetNews().Where(n => n.Description.Contains(searchTerm));
+
+            if (publishedYear != 0)
+                newsQuery = newsQuery.Where(n => n.PublishedAt.Year == publishedYear);
+            return newsQuery.ToList();
         }
     }
 }
