@@ -1,9 +1,13 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: path.resolve(__dirname, 'wwwroot', 'app', 'home.js'),
+    entry: {
+        'common': path.resolve(__dirname, 'wwwroot', 'app', 'common.js'),
+        'home': path.resolve(__dirname, 'wwwroot', 'app', 'home.js'),
+    },
     output: {
-        filename: 'homebundle.js',
+        filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'wwwroot', '.temp'),
     },
     module: {
@@ -15,6 +19,10 @@ module.exports = {
                     'css-loader',
                     'sass-loader'
                 ]
+            },
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
             }
         ]
     }

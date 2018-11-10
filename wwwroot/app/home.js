@@ -1,5 +1,3 @@
-﻿import '../css/site.scss';
-
-function foo() {
+﻿function foo() {
     alert('Hello');
 }
