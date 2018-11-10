@@ -5,6 +5,7 @@ module.exports = {
     entry: {
         'common': path.resolve(__dirname, 'wwwroot', 'app', 'common.js'),
         'home': path.resolve(__dirname, 'wwwroot', 'app', 'home.js'),
+        'search': path.resolve(__dirname, 'wwwroot', 'app', 'search.js'),
     },
     devtool: 'inline-source-map',
     devServer: {
