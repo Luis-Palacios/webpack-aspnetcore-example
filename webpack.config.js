@@ -5,5 +5,17 @@ module.exports = {
     output: {
         filename: 'homebundle.js',
         path: path.resolve(__dirname, 'wwwroot', '.temp'),
+    },
+    module: {
+        rules: [
+            {
+                test: /\.scss$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'sass-loader'
+                ]
+            }
+        ]
     }
 }
