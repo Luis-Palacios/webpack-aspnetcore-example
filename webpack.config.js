@@ -1,10 +1,20 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+    mode: 'development',
     entry: {
         'common': path.resolve(__dirname, 'wwwroot', 'app', 'common.js'),
         'home': path.resolve(__dirname, 'wwwroot', 'app', 'home.js'),
+    },
+    devtool: 'inline-source-map',
+    devServer: {
+        publicPath: '/.temp/',
+        proxy: {
+            '**': {
+                target: 'http://localhost:5000',
+                changeOrigin: true,
+            },
+        }
     },
     output: {
         filename: '[name].bundle.js',
