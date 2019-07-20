@@ -24,7 +24,7 @@
     @foreach (var item in Model)
     {
         <div class="col-sm-6">
-            <partial name="~/Views/Shared/_NewsComponent.cshtml" model="item" />
+            @await Html.PartialAsync("_NewsComponent", item)
         </div>
     }
 </div>

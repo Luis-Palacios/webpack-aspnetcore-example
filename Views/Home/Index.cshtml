@@ -11,12 +11,12 @@
 <div class="row">
     @foreach (var item in Model)
     {
-        <div class="col-sm">
-            <partial name="~/Views/Shared/_NewsComponent.cshtml" model="item" />
+        <div class="col-sm-4">
+            @await Html.PartialAsync("_NewsComponent", item)
         </div>
     }
 </div>
 
 @section scripts{
-    
+    <script src="app/home.js"></script>
 }
