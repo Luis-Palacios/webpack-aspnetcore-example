@@ -1,3 +1,1 @@
-﻿function foo() {
-    alert('Hello');
-}
+﻿import '../scss/site.scss';

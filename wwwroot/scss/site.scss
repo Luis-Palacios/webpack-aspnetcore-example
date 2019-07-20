@@ -1,0 +1,11 @@
+﻿$body-horizontal-padding: 15px;
+body {
+    padding-top: 60px;
+    padding-bottom: 20px;
+}
+
+.body-content {
+    padding-left: $body-horizontal-padding;
+    padding-right: $body-horizontal-padding;
+}
+
